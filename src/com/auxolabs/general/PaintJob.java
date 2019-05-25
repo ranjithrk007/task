@@ -4,9 +4,9 @@ import java.util.Scanner;
 
 public class PaintJob {
     public static void main(String[] args) {
-        double first=0;
-        double second=0;
-        double third=0;
+        double first;
+        double second;
+        double third;
         int forth;
         Scanner s2 = new Scanner(System.in);
         System.out.println("Enter the option 1.calculate bucket to buy 2.calculate bucket needed 3.calculate area");
