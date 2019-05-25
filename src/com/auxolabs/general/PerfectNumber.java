@@ -22,7 +22,7 @@ public class PerfectNumber {
                 System.out.println("false");
             }
         } else {
-            System.out.println("fasle");
+            System.out.println("false");
         }
     }
 }
