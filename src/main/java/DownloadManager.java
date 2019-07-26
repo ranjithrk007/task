@@ -1,15 +1,11 @@
 import java.awt.*;
 import java.awt.event.*;
-import java.net.*;
-import java.util.*;
 import javax.swing.*;
 public class DownloadManager extends JFrame
-        implements Observer {
+        {
     private JTextField addTextField, limitTextField;
-    private JTable table;
     private JButton pauseButton, resumeButton;
     private JButton cancelButton, clearButton;
-    private boolean clearing;
     public DownloadManager() {
         setTitle("Download Manager");
         setSize(640, 480);
@@ -46,8 +42,6 @@ public class DownloadManager extends JFrame
         downloadsPanel.setBorder(
                 BorderFactory.createTitledBorder("Downloads"));
         downloadsPanel.setLayout(new BorderLayout());
-        downloadsPanel.add(new JScrollPane(table),
-                BorderLayout.CENTER);
         JPanel buttonsPanel = new JPanel();
         pauseButton = new JButton("Pause");
         pauseButton.addActionListener(new ActionListener() {
@@ -89,20 +83,6 @@ public class DownloadManager extends JFrame
     private void actionExit() {
         System.exit(0);
     }
-    private URL verifyUrl(String url) {
-        // Only allow HTTP URLs.
-        if (!url.toLowerCase().startsWith("http://") && !url.toLowerCase().startsWith("https://"))
-            return null;
-        URL verifiedUrl = null;
-        try {
-            verifiedUrl = new URL(url);
-        } catch (Exception e) {
-            return null;
-        }
-        if (verifiedUrl.getFile().length() < 2)
-            return null;
-        return verifiedUrl;
-    }
     private void actionPause() {
         updateButtons();
     }
@@ -116,9 +96,6 @@ public class DownloadManager extends JFrame
         updateButtons();
     }
     private void updateButtons() {
-    }
-    public void update(Observable o, Object arg) {
-            updateButtons();
     }
     public static void main(String[] args) {
         DownloadManager manager = new DownloadManager();
